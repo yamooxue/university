@@ -8,6 +8,7 @@
 <script src="image/jquery.min.js"></script>
 <script src="image/vue.js"></script>
 <script src="image/index.js"></script>
+<script src="image/fontSize.js"></script>
 <script src="https://cdn.bootcss.com/element-ui/2.13.0/index.js"></script>
 <link href="https://cdn.bootcss.com/element-ui/2.13.0/theme-chalk/index.css" rel="stylesheet">
 <link rel="stylesheet" href="image/index.css">
@@ -62,6 +63,7 @@ img {max-width: 100%;float: left;}
 .login-btn {height:0.88rem;line-height: 0.88rem;text-align: center; background:rgba(245,211,56,1);border-radius:0.08rem;opacity:0.4;}
 .login-form .el-input__inner{height:0.88rem;background:rgba(244,244,244,1);border-radius:0.08rem;border:0.01rem solid rgba(43,36,31,0.12);}
 </style>
+<script src="image/fontSize.js"></script>
 </head>
 <body>
 <div id="app">
@@ -363,32 +365,17 @@ new Vue({
     }
   }
   $(document).ready(function () {
-    setFontsize()
+    EG.setFontsize()
   })
   $(window).on('resize', function () {
     $('html').css('height', $(window).height() + 'px')
     $('body').css('height', $(window).height() + 'px')
     $('#app').css('height', $(window).height() + 'px')
-    setFontsize()
+    EG.setFontsize()
     adaptationScreen()
     hengshuping()
   })
-  function setFontsize() {
-    var userAgent = window.navigator.userAgent.toLowerCase(),
-          isMobile    = userAgent.indexOf('mobile') != -1,
-          // element = document.documentElement,
-          resizeevent = 'orientationchange' in window ? 'orientationchange' : 'resize',
-          element = document.documentElement
-      var recalc = function () {
-        var clientWidth = element.clientWidth
-        if (!clientWidth) return
-        clientWidth = clientWidth > 750 ? 750 : clientWidth
-        element.style.fontSize = clientWidth / 750 * 100 + 'px'
-      }
-      if (!document.addEventListener) return
-      window.addEventListener(resizeevent, recalc, false)
-      document.addEventListener('DOMContentLoaded', recalc, false)
-  }
+  EG.setFontsize()
 })(window, document)
 </script>
 </html>
