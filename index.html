@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="full-screen" content="yes">
+<title>浪潮计划</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<script src="image/jquery.min.js"></script>
+<script src="image/vue.js"></script>
+<script src="image/index.js"></script>
+<script src="https://cdn.bootcss.com/element-ui/2.13.0/index.js"></script>
+<link href="https://cdn.bootcss.com/element-ui/2.13.0/theme-chalk/index.css" rel="stylesheet">
+<link rel="stylesheet" href="image/index.css">
+<style type="text/css">
+html, body {height: 100%;}
+body, ul, li, a, p, div {padding: 0px; margin: 0px;}
+#app {width: 100%; font-size: 0.26rem;overflow-x: hidden;font-family: PingFang SC, "Microsoft YaHei";font-weight: 500;}
+img {max-width: 100%;float: left;}
+.el-row {background: #fff}
+.rule, .back {position: absolute;top: 0.32rem;height: 0.74rem;}
+.back {left: 0}
+.rule {right: 0}
+.banner-btn {background: rgba(255, 255, 255, 1);border-radius: 0.04rem;color: rgba(61, 61, 124, 1);text-align: center;position: absolute;top: 0.7rem;left: 50%;transform: translateX(-50%);padding: 0.12rem 0.3rem;}
+.progress {padding: 0.6rem 0.32rem 0.2rem;margin: 0.32rem 0.4rem;background: rgba(255, 255, 255, 1);border-radius: 0.08rem;border: 0.02rem solid rgba(217, 217, 217, 1);position: relative;}
+.progress .el-col {margin-bottom: 0.16rem;font-size: 0.3rem;}
+.progress span {text-align: center;width: 2.04rem;height: 0.42rem;background: rgba(74, 72, 143, 1);border-radius: 0.04rem;font-size: 0.26rem;color: rgba(255, 255, 255, 1);line-height: 0.38rem;padding: 0.02rem 0.26rem;position: absolute;top: 0;left: 50%;transform: translateX(-50%);}
+.progress .el-col-6 {text-align: right;}
+.title {padding: 0.2rem 0.32rem}
+.title .el-col-16 {font-size: 0.48rem;color: rgba(51, 51, 51, 1);line-height: 0.66rem;}
+.title .el-col-8 {font-size: 0.26rem;color: rgba(155, 155, 155, 1);line-height: 0.66rem;}
+.list {background: rgba(245, 211, 56, 1);border-radius: 0.08rem;margin: 0.24rem 0.32rem 0 0.32rem;padding: 0.24rem 0.38rem 0.24rem;font-size: 0.24rem;line-height: 0.5rem;}
+.list .el-col-14 span, .list .el-col-10 span {color: white;width: 0.96rem;display: inline-block;margin-right: 0.1rem;}
+.list .el-avatar {width: 0.68rem;height: 0.68rem;margin-top: 0.18rem;}
+.bottom {text-align: center;}
+.bottom span {display: inline-block;width: 3.3rem;height: 0.96rem;line-height: 0.96rem;border-radius: 0.08rem;font-size: 0.32rem;position: relative;}
+.bottom .white {background: rgba(255, 255, 255, 1);border: 0.02rem solid rgba(217, 217, 217, 1);color: rgba(74, 72, 143, 1);}
+.bottom .white2 { left: 0.32rem;right: 0.32rem;width: auto;position: absolute;bottom: 0.64rem; rgba(255, 255, 255, 1);border: 0.02rem solid rgba(217, 217, 217, 1);color: rgba(74, 72, 143, 1);background: #fff;}
+.bottom .blue {background: rgba(74, 72, 143, 1);color: rgba(255, 255, 255, 1);}
+.bottom .blue2 {width: 6.86rem;height: 0.96rem;background: rgba(74, 72, 143, 1);border-radius: 0.08rem;color: #fff;margin-top: 0.5rem;}
+.text {font-size: 0.24rem;color: rgba(155, 155, 155, 1);line-height: 0.34rem;white-space: pre;margin-top: 0.32rem;}
+.el-drawer {padding-top: 1.2rem;border-radius: 0.48rem 0.48rem 0rem 0rem;overflow-y: scroll}
+.demo-drawer__content {margin-top: 0.3rem;overflow-y: scroll;}
+.demo-drawer__content p {padding: 0 0.32rem 0.24rem;font-size: 0.26rem;line-height: 0.38rem;}
+.demo-drawer__content p b {font-weight: bold;}
+.close-btn {width: 0.32rem;height: 0.32rem;position: absolute;top: 0.4rem;left: 50%;transform: translateX(-50%);}
+.rule-title {font-size: 0.4rem;font-weight: 600;margin-left: 0.4rem;display: block;position: relative;z-index: 1;}
+.rule-title b {z-index: 2;position: relative;}
+.rule-title:before {content: '';width: 1.2rem;height: 0.22rem;background: rgba(255, 232, 0, 1);content: '';width: 1.2rem;height: 0.22rem;background: rgba(255, 232, 0, 1);display: block;position: absolute;left: -0.4rem;margin-top: 0.3rem;z-index: 0;}
+.el-form-item {padding: 0.2rem 0.32rem 0;margin: 0;}
+.el-select {width: 100%;}
+.el-input__inner {background: rgba(241, 241, 241, 1);border-radius: 0.08rem;border: 0.02rem solid rgba(217, 217, 217, 1);font-size: 0.28rem;}
+.el-input__inner::-webkit-input-placeholder { /* Chrome/Opera/Safari */color: rgba(155, 155, 155, 1);}
+.el-input__inner::-moz-placeholder { /* Firefox 19+ */color: rgba(155, 155, 155, 1);}
+.el-input__inner:-ms-input-placeholder { /* IE 10+ */color: rgba(155, 155, 155, 1);}
+.el-input__inner:-moz-placeholder { /* Firefox 18- */color: rgba(155, 155, 155, 1);}
+.el-input__inner[readonly='readonly']::-webkit-input-placeholder {color: rgba(51, 51, 51, 1);}
+.el-input__inner[readonly='readonly']::-moz-placeholder {color: rgba(51, 51, 51, 1);}
+.el-input__inner[readonly='readonly']:-ms-input-placeholder {color: rgba(51, 51, 51, 1);}
+.el-input__inner[readonly='readonly']:-moz-placeholder {color: rgba(51, 51, 51, 1);}
+.index {padding: 0.32rem;height: 100%;background: rgb(245, 211, 57);position: fixed;text-align: center}
+.index-btn {max-width: 2.82rem;position: absolute;bottom: 0.72rem;left: 2.34rem;right: 2.34rem}
+.login-btn {height:0.88rem;line-height: 0.88rem;text-align: center; background:rgba(245,211,56,1);border-radius:0.08rem;opacity:0.4;}
+.login-form .el-input__inner{height:0.88rem;background:rgba(244,244,244,1);border-radius:0.08rem;border:0.01rem solid rgba(43,36,31,0.12);}
+</style>
+</head>
+<body>
+<div id="app">
+  <template v-if="step==0">
+    <el-row class="index">
+      <img src="image/index.png" alt="">
+      <img src="image/button@3x.png" class="index-btn" @click="start">
+    </el-row>
+  </template>
+  <template v-if="step==1">
+    <el-row>
+      <img class="back" src="image/back.png" alt="">
+      <img src="image/chahua2@3x.png" alt="" width="100%">
+      <img class="rule" src="image/rule.png" @click="drawer=true">
+      <div class="banner-btn">{{currentStatus}}</div>
+    </el-row>
+    <el-row class="progress">
+      <span>福利获取进度</span>
+      <el-col :span="18">首月租金减半券</el-col>
+      <el-col :span="6"><font :color="personalDrawStatus=='未完成'?'#9B9B9B':''">{{personalDrawStatus}}</font></el-col>
+      <el-col :span="18">首月租金减免¥1000</el-col>
+      <el-col :span="6"><font :color="groupDrawStatus=='未完成'?'#9B9B9B':''">{{groupDrawStatus}}</font></el-col>
+    </el-row>
+    <el-row class="title">
+      <el-col :span="16">福利小组</el-col>
+      <el-col :span="8">完成认证进度({{successCount}}/{{lists.length}})</el-col>
+    </el-row>
+    <el-row style="padding-bottom: 0.6rem;">
+      <el-row class="list" v-for="(list,i) in lists" :key="i">
+        <el-col :span="4">
+          <el-avatar>{{list.renterAccountName}}</el-avatar>
+        </el-col>
+        <el-col :span="20">
+          <el-col :span="14"><span style="width: 0.82rem">姓名</span>{{list.renterAccountName}}</el-col>
+          <el-col :span="10"><span>毕业认证</span><font :color="list.universityAuthenticationFlag?'':'#DA503B'">{{list.universityAuthenticationFlag=='0'?'未认证':'已认证'}}</font></el-col>
+          <el-col :span="14"><span style="width: 0.82rem">手机号</span>{{list.telphone}}</el-col>
+          <el-col :span="10"><span>实名认证</span><font :color="list.realNameAuthenticationFlag?'':'#DA503B'">{{list.realNameAuthenticationFlag=='0'?'未认证':'已认证'}}</font></el-col>
+        </el-col>
+      </el-row>
+    </el-row>
+    <el-row class="bottom" style="background: rgba(241, 241, 241, 1)">
+      <el-col class="text" :span="24">福利券有效期：自发放日起3个月内
+        打开江寓App，在「我的」-「优惠券」中查看福利
+      </el-col>
+      <el-col :span="24">
+        <span class="white">打开江寓App</span>
+        <span class="blue">邀请同学</span>
+      </el-col>
+      <el-col class="text" :span="24" style="color:rgba(74,72,143,1);font-weight: 600;margin-bottom: 0.64rem;">当前参与活动手机号：{{tel}}</el-col>
+    </el-row>
+  </template>
+  <template v-if="step==2">
+    <el-row>
+      <img src="image/bg@3x.png" alt="">
+      <img class="rule" src="image/rule.png" @click="drawer=true">
+    </el-row>
+    <el-row class="bottom" style="background: #fff">
+      <el-col :span="24"><span class="blue2" @click="step=3">验证身份</span></el-col>
+      <el-col class="text" :span="24" style="color:rgba(74,72,143,1);font-weight: 600;margin-bottom: 0.64rem;">当前参与活动手机号：{{tel}}</el-col>
+    </el-row>
+  </template>
+  <template v-if="step==3">
+    <el-row>
+      <img class="back" src="image/back.png" @click="step=2">
+      <img src="image/chahua2@3x.png" alt="" width="100%">
+      <img class="rule" src="image/rule.png" @click="drawer=true">
+      <div class="banner-btn">审核时间：每日9:00-21:00</div>
+    </el-row>
+    <el-row>
+      <el-form ref="form" :model="form">
+        <el-form-item>
+          <el-input v-model="input" placeholder="请输入身份证号(请与APP实名认证号码一致)"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-input v-model="input" placeholder="请输入真实姓名(与身份证上一致)"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-input v-model="input" placeholder="请输入毕业学校名称"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-input v-model="input" placeholder="毕业年份：2020年" readonly="readonly"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-select v-model="input" placeholder="请选择学历">
+            <el-option v-for="item in [{label:'本科',value:'1'}]" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item>
+          <el-input v-model="input" placeholder="请输入学信网验证码"></el-input>
+        </el-form-item>
+      </el-form>
+    </el-row>
+    <el-row class="bottom">
+      <el-col><p class="text" style="color:rgba(74,72,143,1);font-weight: 600;" @click="step=4">如何获取学信网验证码？</p></el-col>
+      <el-col :span="24"><span class="blue2">验证身份</span></el-col>
+      <el-col class="text" :span="24" style="color:rgba(74,72,143,1);font-weight: 600;margin-bottom: 0.64rem;">当前参与活动手机号：{{tel}}</el-col>
+    </el-row>
+  </template>
+  <template v-if="step==4">
+    <el-row class="bottom">
+      <img class="back" src="image/back.png" @click="step=3">
+      <img src="image/1@3x.png" alt="">
+      <img src="image/2@3x.png" alt="">
+      <span class="white2">访问学籍网</span>
+    </el-row>
+  </template>
+  <el-drawer :visible.sync="drawer" direction="btt" @close="drawer=false" :with-header="false" size="70%">
+      <img src="image/close.png" class="close-btn" @click="drawer=false">
+      <span class="rule-title"><b>活动规则</b></span>
+    <div class="demo-drawer__content">
+      <p>1)参与者需进行学籍身份验证，验证要求为<b>20年专科及以上</b>学历应届毕业生。审核通过后，获得江寓应届生专属首月租金半价券，同时邀请3位好友完成注册及学籍身份验证后，每人可获得1000元首月免租券；</p>
+      <p>2)应届毕业生可以同时获取两种优惠券，<b>优惠券仅适用于长租，新签时减免首月租金使用</b>，一次新签只能使用一张，不可与其他租金优惠券叠加，可与大客户权益同享；若退租后，仍然可以使用有效期内第二张优惠券， <b>4人所得首月免租券不强制要求必须在同一套房源的4间来使用；</b></p>
+      <p>3)首月免租券最高减免1000元，若减免金额超过1个月租金，则按一个月租金计算；优惠劵签约的租客如中途解约，需将减免金额按照合同期内的实际居住时长比例，按月进行折算（每月租期满15天算一个月），并在剩余房租内补齐减免金额；</p>
+      <p>4)参与活动的账号需要与签约账户保持一致，每人每个活动限享受一次，每个身份证仅可在一个手机号上验证一次，且与账号实名认证证件号码保持一致，不支持更换手机号重新验证；</p>
+      <p>5)登陆app，在【我的】-【优惠券】查看奖励，当前优惠券有效期自领取日起3个月内有效，逾期未使用则视为自动放弃。</p>
+    </div>
+  </el-drawer>
+  <el-drawer :visible.sync="drawerForm" direction="btt" @close="drawerForm=false" :with-header="false" size="40%">
+    <img src="image/close.png" class="close-btn" @click="drawerForm=false">
+    <div class="demo-drawer__content">
+      <el-form ref="form" :model="form" class="login-form">
+        <el-form-item style="padding:0 0.6rem 0.24rem">
+          <el-input v-model="input" placeholder="请输入手机号"></el-input>
+        </el-form-item>
+        <el-form-item style="padding:0 0.6rem">
+          <el-row :gutter="10">
+            <el-col :span="18">
+              <el-input v-model="input" placeholder="请输入验证码"></el-input>
+            </el-col>
+            <el-col :span="6" style="font-size: 0.26rem;" v-if="time==0"><span @click="timer">获取验证码</span></el-col>
+            <el-col :span="6" style="font-size: 0.26rem;" v-if="time!=0">倒计时{{time}}S</el-col>
+          </el-row>
+        </el-form-item>
+        <el-row style="padding:0.24rem 0.6rem">
+         <el-col :span="24"><div class="login-btn">登录</div></el-col>
+        </el-row>
+      </el-form>
+    </div>
+  </el-drawer>
+</div>
+</body>
+<script>
+var tel = ''
+var interval = null
+new Vue({
+  el: '#app',
+  data: function () {
+    return {
+      tel: tel,
+      step: 0,
+      drawer: false,
+      drawerForm: false,
+      isInvitedFullFlag: false,
+      personalDrawStatus: '-',
+      groupDrawStatus: '-',
+      currentStatus: '',
+      successCount: 0,
+      input: '',
+      form: {},
+      currentStatusOption: [
+        {
+          name: '没提交毕业生资格认证，需要去提交',
+          value: '1'
+        },
+        {
+          name: '您的毕业生资格正在审核中',
+          value: '2'
+        },
+        {
+          name: '恭喜您已通过毕业生认证,前往app完成实名认证即可获得优惠券',
+          value: '3'
+        },
+        {
+          name: '被驳回重新提交',
+          value: '4'
+        },
+        {
+          name: '恭喜您已完成认证',
+          value: '5'
+        }
+      ],
+      time: 0,
+      interval: interval,
+      lists: []
+    }
+  },
+  methods: {
+    timer() {
+      var that = this
+      that.time = 59;
+      interval = setInterval(function () {
+        if(that.time==0){
+          clearInterval(interval)
+        }else{
+          that.time--
+        }
+      },1000)
+    },
+    start() {
+      if (!this.tel) {
+        this.drawerForm = true
+        return
+      }
+      var that = this
+      var res = {
+        'code': 200,
+        'message': null,
+        'data': {
+          'personalDrawStatus': false,
+          'currentStatus': '1',
+          'members': [{
+            'id': 1,
+            'renterAccountId': 124134,
+            'renterAccountName': '陈康',
+            'telphone': '15527249193',
+            'inviteRenterAccountId': null,
+            'inviteTelephone': null,
+            'groupNo': '124134-group',
+            'universityAuthenticationFlag': false,
+            'universityAuthenticationStatus': null,
+            'realNameAuthenticationFlag': true,
+            'fullFlag': false
+          }, {
+            'id': 1,
+            'renterAccountId': 124134,
+            'renterAccountName': '陈康',
+            'telphone': '15527249193',
+            'inviteRenterAccountId': null,
+            'inviteTelephone': null,
+            'groupNo': '124134-group',
+            'universityAuthenticationFlag': false,
+            'universityAuthenticationStatus': null,
+            'realNameAuthenticationFlag': true,
+            'fullFlag': false
+          }],
+          'successCount': 0,
+          'groupDrawStatus': false,
+          'isInvitedFullFlag': false
+        },
+        'success': true
+      }
+      that.lists = res.data.members
+      that.personalDrawStatus = res.data.personalDrawStatus ? '已获得' : '未完成'
+      that.groupDrawStatus = res.data.groupDrawStatus ? '已获得' : '未完成'
+      that.successCount = res.data.successCount
+      for (let i = 0; i < that.currentStatusOption.length; i++) {
+        if (that.currentStatusOption[i].value == res.data.currentStatus) {that.currentStatus = that.currentStatusOption[i].name }
+      }
+      if (res.data.currentStatus == 1) {
+        that.step = 2
+      } else {
+        that.step = 1
+      }
+      // $.ajax({
+      //   url: 'http://10.8.0.26:8089/university/2020/indexInit',
+      //   type: 'POST',
+      //   dataType: 'JSON',
+      //   success: function (res) {
+      //     that.lists = res.data.members
+      //     that.personalDrawStatus = res.data.personalDrawStatus ? '已获得' : '未完成'
+      //     that.groupDrawStatus = res.data.groupDrawStatus ? '已获得' : '未完成'
+      //     for (let i = 0; i < that.currentStatusOption.length; i++) {
+      //       if (that.currentStatusOption[i].value == res.data.currentStatus) {that.currentStatus = that.currentStatusOption[i].name }
+      //     }
+      //     if (res.data.currentStatus == 1) {
+      //       that.step = 2
+      //     }else{
+      //       that.step = 1
+      //     }
+      //     console.log(that.personalDrawStatus)
+      //   }
+      // })
+    }
+  }
+})
+</script>
+<script>
+(function (window, document) {
+  //横屏处理
+  function hengshuping() {
+    if (window.orientation == 90 || window.orientation == -90) {
+      $('.landscape').show()
+      $(document.body).addClass('body')
+    } else {
+      $('.landscape').hide()
+      $(document.body).removeClass('body')
+    }
+  }
+//适配不同屏幕
+  function adaptationScreen() {
+    var win       = $(window),
+        winWidth  = win.width(),
+        winHeight = win.height(),
+        scale     = winWidth / winHeight
+    if (scale < 0.52) {
+      $('.container').addClass('bigScreen').removeClass('smallScreen')
+    } else {
+      $('.container').addClass('smallScreen').removeClass('bigScreen')
+    }
+  }
+  $(window).on('resize', function () {
+    $('html').css('height', $(window).height() + 'px')
+    $('body').css('height', $(window).height() + 'px')
+    $('#app').css('height', $(window).height() + 'px')
+    tool.setFontsize()
+    adaptationScreen()
+    hengshuping()
+  })
+  var tool = {
+    isMobile: function () {
+      var userAgent = window.navigator.userAgent.toLowerCase(),
+          result    = userAgent.indexOf('mobile') != -1
+      return result
+    },
+    setFontsize: function (element) {
+      var isMobile    = this.isMobile(),
+          // element = document.documentElement,
+          resizeevent = 'orientationchange' in window ? 'orientationchange' : 'resize'
+      element = element || document.documentElement
+      var recalc = function () {
+        var clientWidth = element.clientWidth
+        if (!clientWidth) return
+        clientWidth = clientWidth > 750 ? 750 : clientWidth
+        element.style.fontSize = clientWidth / 750 * 100 + 'px'
+      }
+      if (!document.addEventListener) return
+      window.addEventListener(resizeevent, recalc, false)
+      document.addEventListener('DOMContentLoaded', recalc, false)
+    }
+  }
+  window.EG = tool
+  tool.setFontsize()
+})(window, document)
+</script>
+</html>
