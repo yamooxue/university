@@ -362,6 +362,9 @@ new Vue({
       $('.container').addClass('smallScreen').removeClass('bigScreen')
     }
   }
+  $(document).ready(function () {
+    tool.setFontsize()
+  })
   $(window).on('resize', function () {
     $('html').css('height', $(window).height() + 'px')
     $('body').css('height', $(window).height() + 'px')
