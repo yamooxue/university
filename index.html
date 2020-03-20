@@ -5,15 +5,15 @@
 <meta name="full-screen" content="yes">
 <title>浪潮计划</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<link rel="stylesheet" href="image/index.css">
 <script src="image/jquery.min.js"></script>
 <script src="image/vue.js"></script>
 <script src="image/index.js"></script>
 <script src="image/fontSize.js"></script>
 <script src="https://cdn.bootcss.com/element-ui/2.13.0/index.js"></script>
 <link href="https://cdn.bootcss.com/element-ui/2.13.0/theme-chalk/index.css" rel="stylesheet">
-<link rel="stylesheet" href="image/index.css">
 <style type="text/css">
-html, body {height: 100%;}
+html, body {height: 100%;background: rgba(241, 241, 241, 1)}
 body, ul, li, a, p, div {padding: 0px; margin: 0px;}
 #app {width: 100%; font-size: 0.26rem;overflow-x: hidden;font-family: PingFang SC, "Microsoft YaHei";font-weight: 500;}
 img {max-width: 100%;float: left;}
@@ -22,7 +22,7 @@ img {max-width: 100%;float: left;}
 .back {left: 0}
 .rule {right: 0}
 .banner-btn {background: rgba(255, 255, 255, 1);border-radius: 0.04rem;color: rgba(61, 61, 124, 1);text-align: center;position: absolute;top: 0.7rem;left: 50%;transform: translateX(-50%);padding: 0.12rem 0.3rem;}
-.progress {padding: 0.6rem 0.32rem 0.2rem;margin: 0.32rem 0.4rem;background: rgba(255, 255, 255, 1);border-radius: 0.08rem;border: 0.02rem solid rgba(217, 217, 217, 1);position: relative;}
+.progress {float: left;box-sizing: border-box;width: 100%;padding: 0.6rem 0.32rem 0.2rem;background: rgba(255, 255, 255, 1);border-radius: 0.08rem;border: 0.02rem solid rgba(217, 217, 217, 1);position: relative;}
 .progress .el-col {margin-bottom: 0.16rem;font-size: 0.3rem;}
 .progress span {text-align: center;width: 2.04rem;height: 0.42rem;background: rgba(74, 72, 143, 1);border-radius: 0.04rem;font-size: 0.26rem;color: rgba(255, 255, 255, 1);line-height: 0.38rem;padding: 0.02rem 0.26rem;position: absolute;top: 0;left: 50%;transform: translateX(-50%);}
 .progress .el-col-6 {text-align: right;}
@@ -35,7 +35,7 @@ img {max-width: 100%;float: left;}
 .bottom {text-align: center;}
 .bottom span {display: inline-block;width: 3.3rem;height: 0.96rem;line-height: 0.96rem;border-radius: 0.08rem;font-size: 0.32rem;position: relative;}
 .bottom .white {background: rgba(255, 255, 255, 1);border: 0.02rem solid rgba(217, 217, 217, 1);color: rgba(74, 72, 143, 1);}
-.bottom .white2 { left: 0.32rem;right: 0.32rem;width: auto;position: absolute;bottom: 0.64rem; rgba(255, 255, 255, 1);border: 0.02rem solid rgba(217, 217, 217, 1);color: rgba(74, 72, 143, 1);background: #fff;}
+.bottom .white2 { left: 0.32rem;right: 0.32rem;width: auto;position: absolute;bottom: 0.64rem; background: rgba(255, 255, 255, 1);border: 0.02rem solid rgba(217, 217, 217, 1);color: rgba(74, 72, 143, 1);background: #fff;}
 .bottom .blue {background: rgba(74, 72, 143, 1);color: rgba(255, 255, 255, 1);}
 .bottom .blue2 {width: 6.86rem;height: 0.96rem;background: rgba(74, 72, 143, 1);border-radius: 0.08rem;color: #fff;margin-top: 0.5rem;}
 .text {font-size: 0.24rem;color: rgba(155, 155, 155, 1);line-height: 0.34rem;white-space: pre;margin-top: 0.32rem;}
@@ -49,7 +49,7 @@ img {max-width: 100%;float: left;}
 .rule-title:before {content: '';width: 1.2rem;height: 0.22rem;background: rgba(255, 232, 0, 1);content: '';width: 1.2rem;height: 0.22rem;background: rgba(255, 232, 0, 1);display: block;position: absolute;left: -0.4rem;margin-top: 0.3rem;z-index: 0;}
 .el-form-item {padding: 0.2rem 0.32rem 0;margin: 0;}
 .el-select {width: 100%;}
-.el-input__inner {background: rgba(241, 241, 241, 1);border-radius: 0.08rem;border: 0.02rem solid rgba(217, 217, 217, 1);font-size: 0.28rem;}
+.el-input__inner {background: rgba(241, 241, 241, 1);border-radius: 0.08rem;border: 0.02rem solid rgba(217, 217, 217, 1);font-size: 0.28rem;height: 0.88rem;}
 .el-input__inner::-webkit-input-placeholder { /* Chrome/Opera/Safari */color: rgba(155, 155, 155, 1);}
 .el-input__inner::-moz-placeholder { /* Firefox 19+ */color: rgba(155, 155, 155, 1);}
 .el-input__inner:-ms-input-placeholder { /* IE 10+ */color: rgba(155, 155, 155, 1);}
@@ -59,9 +59,11 @@ img {max-width: 100%;float: left;}
 .el-input__inner[readonly='readonly']:-ms-input-placeholder {color: rgba(51, 51, 51, 1);}
 .el-input__inner[readonly='readonly']:-moz-placeholder {color: rgba(51, 51, 51, 1);}
 .index {padding: 0.32rem;height: 100%;background: rgb(245, 211, 57);position: fixed;text-align: center}
-.index-btn {max-width: 2.82rem;position: absolute;bottom: 0.72rem;left:50%;transform: translateX(-50%)}
-.login-btn {height:0.88rem;line-height: 0.88rem;text-align: center; background:rgba(245,211,56,1);border-radius:0.08rem;opacity:0.4;}
-.login-form .el-input__inner{height:0.88rem;background:rgba(244,244,244,1);border-radius:0.08rem;border:0.01rem solid rgba(43,36,31,0.12);}
+.index-btn {width: 2.82rem;margin: 0.24rem auto;margin-left: 50%;transform: translateX(-50%);}
+.login-btn {height: 0.88rem;line-height: 0.88rem;text-align: center; background: #F5D338;border-radius: 0.08rem;}
+.login-btn.disabled {opacity: 0.4;}
+.login-form .el-input__inner {height: 0.88rem;background: rgba(244, 244, 244, 1);border-radius: 0.08rem;border: 0.01rem solid rgba(43, 36, 31, 0.12);}
+.el-form-item__error {position: relative}
 </style>
 <script src="image/fontSize.js"></script>
 </head>
@@ -80,12 +82,14 @@ img {max-width: 100%;float: left;}
       <img class="rule" src="image/rule.png" @click="drawer=true">
       <div class="banner-btn">{{currentStatus}}</div>
     </el-row>
-    <el-row class="progress">
-      <span>福利获取进度</span>
-      <el-col :span="18">首月租金减半券</el-col>
-      <el-col :span="6"><font :color="personalDrawStatus=='未完成'?'#9B9B9B':''">{{personalDrawStatus}}</font></el-col>
-      <el-col :span="18">首月租金减免¥1000</el-col>
-      <el-col :span="6"><font :color="groupDrawStatus=='未完成'?'#9B9B9B':''">{{groupDrawStatus}}</font></el-col>
+    <el-row style="padding: 0.32rem 0.4rem">
+      <div class="progress">
+        <span>福利获取进度</span>
+        <el-col :span="18">首月租金减半券</el-col>
+        <el-col :span="6"><font :color="personalDrawStatus=='未完成'?'#9B9B9B':''">{{personalDrawStatus}}</font></el-col>
+        <el-col :span="18">首月租金减免¥1000</el-col>
+        <el-col :span="6"><font :color="groupDrawStatus=='未完成'?'#9B9B9B':''">{{groupDrawStatus}}</font></el-col>
+      </div>
     </el-row>
     <el-row class="title">
       <el-col :span="16">福利小组</el-col>
@@ -112,7 +116,7 @@ img {max-width: 100%;float: left;}
         <span class="white">打开江寓App</span>
         <span class="blue">邀请同学</span>
       </el-col>
-      <el-col class="text" :span="24" style="color:rgba(74,72,143,1);font-weight: 600;margin-bottom: 0.64rem;">当前参与活动手机号：{{tel}}</el-col>
+      <el-col class="text" :span="24" style="color:rgba(74,72,143,1);font-weight: 600;margin-bottom: 0.64rem;">当前参与活动手机号：{{telephone}}</el-col>
     </el-row>
   </template>
   <template v-if="step==2">
@@ -122,7 +126,7 @@ img {max-width: 100%;float: left;}
     </el-row>
     <el-row class="bottom" style="background: #fff">
       <el-col :span="24"><span class="blue2" @click="step=3">验证身份</span></el-col>
-      <el-col class="text" :span="24" style="color:rgba(74,72,143,1);font-weight: 600;margin-bottom: 0.64rem;">当前参与活动手机号：{{tel}}</el-col>
+      <el-col class="text" :span="24" style="color:rgba(74,72,143,1);font-weight: 600;margin-bottom: 0.64rem;">当前参与活动手机号：{{telephone}}</el-col>
     </el-row>
   </template>
   <template v-if="step==3">
@@ -133,33 +137,35 @@ img {max-width: 100%;float: left;}
       <div class="banner-btn">审核时间：每日9:00-21:00</div>
     </el-row>
     <el-row>
-      <el-form ref="form" :model="form">
-        <el-form-item>
-          <el-input v-model="input" placeholder="请输入身份证号(请与APP实名认证号码一致)"></el-input>
+      <el-form ref="iDform" :rules="form" :model="vData">
+        <el-form-item prop="idCard">
+          <el-input v-model="vData.idCard" placeholder="请输入身份证号(请与APP实名认证号码一致)"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-input v-model="input" placeholder="请输入真实姓名(与身份证上一致)"></el-input>
+        <el-form-item prop="name">
+          <el-input v-model="vData.name" placeholder="请输入真实姓名(与身份证上一致)"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-input v-model="input" placeholder="请输入毕业学校名称"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-input v-model="input" placeholder="毕业年份：2020年" readonly="readonly"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-select v-model="input" placeholder="请选择学历">
-            <el-option v-for="item in [{label:'本科',value:'1'}]" :key="item.value" :label="item.label" :value="item.value"></el-option>
+        <el-form-item prop="school">
+          <el-select v-model="vData.school" placeholder="请输入毕业学校名称" filterable remote :remote-method="remoteMethod" :loading="loading">
+            <el-option v-for="item in schoolOptions" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item>
-          <el-input v-model="input" placeholder="请输入学信网验证码"></el-input>
+        <el-form-item prop="graduationYear">
+          <el-input v-model="vData.graduationYear" :value="2020" placeholder="毕业年份：2020年" readonly="readonly"></el-input>
+        </el-form-item>
+        <el-form-item prop="educational">
+          <el-select v-model="vData.educational" placeholder="请选择学历">
+            <el-option v-for="item in [{label:'大专',value:'大专'},{label:'本科',value:'本科'},{label:'硕士',value:'硕士'},{label:'博士',value:'博士'},{label:'博士后',value:'博士后'}]" :key="item.value" :label="item.label" :value="item.value"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item prop="schoolVerificationCode">
+          <el-input v-model="vData.schoolVerificationCode" placeholder="请输入学信网验证码"></el-input>
         </el-form-item>
       </el-form>
     </el-row>
     <el-row class="bottom">
       <el-col><p class="text" style="color:rgba(74,72,143,1);font-weight: 600;" @click="step=4">如何获取学信网验证码？</p></el-col>
-      <el-col :span="24"><span class="blue2">验证身份</span></el-col>
-      <el-col class="text" :span="24" style="color:rgba(74,72,143,1);font-weight: 600;margin-bottom: 0.64rem;">当前参与活动手机号：{{tel}}</el-col>
+      <el-col :span="24"><span class="blue2" @click="sub">验证身份</span></el-col>
+      <el-col class="text" :span="24" style="color:rgba(74,72,143,1);font-weight: 600;margin-bottom: 0.64rem;">当前参与活动手机号：{{telephone}}</el-col>
     </el-row>
   </template>
   <template v-if="step==4">
@@ -171,8 +177,8 @@ img {max-width: 100%;float: left;}
     </el-row>
   </template>
   <el-drawer :visible.sync="drawer" direction="btt" @close="drawer=false" :with-header="false" size="70%">
-      <img src="image/close.png" class="close-btn" @click="drawer=false">
-      <span class="rule-title"><b>活动规则</b></span>
+    <img src="image/close.png" class="close-btn" @click="drawer=false">
+    <span class="rule-title"><b>活动规则</b></span>
     <div class="demo-drawer__content">
       <p>1)参与者需进行学籍身份验证，验证要求为<b>20年专科及以上</b>学历应届毕业生。审核通过后，获得江寓应届生专属首月租金半价券，同时邀请3位好友完成注册及学籍身份验证后，每人可获得1000元首月免租券；</p>
       <p>2)应届毕业生可以同时获取两种优惠券，<b>优惠券仅适用于长租，新签时减免首月租金使用</b>，一次新签只能使用一张，不可与其他租金优惠券叠加，可与大客户权益同享；若退租后，仍然可以使用有效期内第二张优惠券， <b>4人所得首月免租券不强制要求必须在同一套房源的4间来使用；</b></p>
@@ -184,36 +190,82 @@ img {max-width: 100%;float: left;}
   <el-drawer :visible.sync="drawerForm" direction="btt" @close="drawerForm=false" :with-header="false" size="40%">
     <img src="image/close.png" class="close-btn" @click="drawerForm=false">
     <div class="demo-drawer__content">
-      <el-form ref="form" :model="form" class="login-form">
-        <el-form-item style="padding:0 0.6rem 0.24rem">
-          <el-input v-model="input" placeholder="请输入手机号"></el-input>
+      <el-form ref="form2" :model="loginData" :rules="form2" class="login-form">
+        <el-form-item prop="telephone" style="padding:0 0.6rem 0.24rem">
+          <el-input v-model="loginData.telephone" placeholder="请输入手机号"></el-input>
         </el-form-item>
-        <el-form-item style="padding:0 0.6rem">
+        <el-form-item prop="msgCode" style="padding:0 0.6rem">
           <el-row :gutter="10">
             <el-col :span="18">
-              <el-input v-model="input" placeholder="请输入验证码"></el-input>
+              <el-input v-model="loginData.msgCode" placeholder="请输入验证码"></el-input>
             </el-col>
-            <el-col :span="6" style="font-size: 0.26rem;" v-if="time==0"><span @click="timer">获取验证码</span></el-col>
+            <el-col :span="6" style="font-size: 0.26rem;" v-if="time==0"><span @click="timer" style="line-height: 0.88rem">获取验证码</span></el-col>
             <el-col :span="6" style="font-size: 0.26rem;" v-if="time!=0">倒计时{{time}}S</el-col>
           </el-row>
         </el-form-item>
         <el-row style="padding:0.24rem 0.6rem">
-         <el-col :span="24"><div class="login-btn">登录</div></el-col>
+          <el-col :span="24">
+            <div :class="(!loginData.telephone||!loginData.msgCode)?'login-btn disabled':'login-btn'" @click="login">登录</div>
+          </el-col>
         </el-row>
       </el-form>
     </div>
   </el-drawer>
 </div>
 </body>
-<script>
-var tel = ''
-var interval = null
-new Vue({
+<script th:inline="javascript">
+var tel = localStorage.getItem('tel') || '18765432345' //用户手机号
+var token = localStorage.getItem('token') //用户手机号
+var interval = null //验证码定时器
+var unionId = /*[[${unionId}]]*/ '124' //openid
+var friendTelephone = /*[[${friendTelephone}]]*/ '444' //邀请人号码
+var ip = 'http://10.8.0.26:8089' //调试去掉
+function vData() {
+  this.idCard = null
+  this.name = null
+  this.school = null
+  this.graduationYear = null
+  this.educational = null
+  this.schoolVerificationCode = null
+}
+function loginData() {
+  this.unionId = unionId
+  this.telephone = null
+  this.friendTelephone = friendTelephone
+  this.msgCode = null
+  this.msgId = null
+}
+var _this = new Vue({
   el: '#app',
   data: function () {
+    var validateId = function (rule, value, callback) {
+      if (!value || !new RegExp(/^\d{15}|\d{18}$/).test(value)) {
+        callback(new Error('请输入正确的身份证号码'))
+      } else {
+        callback()
+      }
+    }
+    var validateTel = function (rule, value, callback) {
+      if (!value || !(/^1[3456789]\d{9}$/.test(value))) {
+        callback(new Error('请输入正确的手机号码'))
+      } else {
+        callback()
+      }
+    }
+    var validateCode = function (rule, value, callback) {
+      if (!value || !(/^\d{6}$/.test(value))) {
+        callback(new Error('请输入正确验证码')) //验证码位数限制
+      } else {
+        callback()
+      }
+    }
     return {
+      loading: false,
+      vData: new vData(),
+      loginData: new loginData(),
       tel: tel,
-      step: 0,
+      telephone: tel ? tel.slice(0,3) + '****' + tel.slice(7) : '',
+      step: 3,
       drawer: false,
       drawerForm: false,
       isInvitedFullFlag: false,
@@ -222,7 +274,46 @@ new Vue({
       currentStatus: '',
       successCount: 0,
       input: '',
-      form: {},
+      form2: {
+        telephone: {
+          required: true,
+          validator: validateTel,
+          trigger: onblur
+        },
+        msgCode: {
+          required: true,
+          validator: validateCode,
+          trigger: onblur,
+        }
+      },
+      form: {
+        idCard: {
+          required: true,
+          validator: validateId,
+          trigger: onblur
+          // message: '请输入身份证号'
+        },
+        name: {
+          required: true,
+          trigger: onblur,
+          message: '请输入真实姓名'
+        },
+        school: {
+          required: true,
+          trigger: onblur,
+          message: '请输入毕业学校名称'
+        },
+        educational: {
+          required: true,
+          trigger: onblur,
+          message: '请选择学历'
+        },
+        schoolVerificationCode: {
+          required: true,
+          trigger: onblur,
+          message: '请输入学信网验证码'
+        }
+      },
       currentStatusOption: [
         {
           name: '没提交毕业生资格认证，需要去提交',
@@ -237,7 +328,7 @@ new Vue({
           value: '3'
         },
         {
-          name: '被驳回重新提交',
+          name: '审核被驳,请重新提交',
           value: '4'
         },
         {
@@ -247,95 +338,153 @@ new Vue({
       ],
       time: 0,
       interval: interval,
-      lists: []
+      lists: [],
+      schoolOptions: []
     }
   },
   methods: {
-    timer() {
-      var that = this
-      that.time = 59;
-      interval = setInterval(function () {
-        if(that.time==0){
-          clearInterval(interval)
-        }else{
-          that.time--
-        }
-      },1000)
+    remoteMethod(query) {
+      if (query.length > 2) {
+        this.loading = true
+        $.ajax({
+          url: ip + '/university/2020/school',
+          type: 'GET',
+          data: {keyWord: query},
+          dataType: 'JSON',
+          success: function (res) {
+            _this.loading = false
+            _this.schoolOptions = res.data.map(function (v) {
+              return {
+                name: v,
+                value: v
+              }
+            })
+          }
+        })
+      } else {
+        this.schoolOptions = []
+      }
     },
-    start() {
-      if (!this.tel) {
-        this.drawerForm = true
+    timer() {
+      if (!this.loginData.telephone) {
+        this.$message.warning('请输入电话号码')
         return
       }
-      var that = this
-      var res = {
-        'code': 200,
-        'message': null,
-        'data': {
-          'personalDrawStatus': false,
-          'currentStatus': '1',
-          'members': [{
-            'id': 1,
-            'renterAccountId': 124134,
-            'renterAccountName': '陈康',
-            'telphone': '15527249193',
-            'inviteRenterAccountId': null,
-            'inviteTelephone': null,
-            'groupNo': '124134-group',
-            'universityAuthenticationFlag': false,
-            'universityAuthenticationStatus': null,
-            'realNameAuthenticationFlag': true,
-            'fullFlag': false
-          }, {
-            'id': 1,
-            'renterAccountId': 124134,
-            'renterAccountName': '陈康',
-            'telphone': '15527249193',
-            'inviteRenterAccountId': null,
-            'inviteTelephone': null,
-            'groupNo': '124134-group',
-            'universityAuthenticationFlag': false,
-            'universityAuthenticationStatus': null,
-            'realNameAuthenticationFlag': true,
-            'fullFlag': false
-          }],
-          'successCount': 0,
-          'groupDrawStatus': false,
-          'isInvitedFullFlag': false
+      _this.time = 59
+      interval = setInterval(function () {
+        if (_this.time == 0) {
+          clearInterval(interval)
+        } else {
+          _this.time--
+        }
+      }, 1000)
+      this.getCode()
+    },
+    getCode() {
+      $.ajax({
+        url: ip + '/university/2020/sendCode',
+        type: 'GET',
+        data: {t: this.loginData.telephone},
+        dataType: 'JSON',
+        success: function (res) {
+          _this.loginData.msgId = res.data.msgId
+        }
+      })
+    },
+    login() {
+      if (!this.loginData.telephone) {
+        this.$message.warning('请输入电话号码')
+        return
+      }
+      if (!this.loginData.msgCode) {
+        this.$message.warning('请输入验证码')
+        return
+      }
+      $.ajax({
+        url: ip + '/university/2020/bindTelephone',
+        type: 'GET',
+        data: this.loginData,
+        dataType: 'JSON',
+        success: function (res) {
+          if (res.code == 200) {
+            token = res.data.token
+            console.log(token)
+            tel = _this.loginData.telephone
+            _this.telephone = tel.slice(0,3) + '****' + tel.slice(7)
+            localStorage.setItem('token', token)
+            localStorage.setItem('tel', tel)
+            this.drawerForm = false
+            _this.start()
+          } else {
+            _this.$message.error(res.message)
+          }
+        }
+      })
+    },
+    sub() {
+      this.vData.graduationYear = '2020'
+      this.vData.token = token
+      this.vData.friendTel = friendTelephone
+      console.log(this.vData)
+      this.$refs['iDform'].validate((valid) => {
+        if (valid) {
+          $.ajax({
+            url: ip + '/university/2020/submit',
+            type: 'POST',
+            data: this.vData,
+            dataType: 'JSON',
+            success: function (res) {
+              if (res.code == 200) {
+                _this.$message.success(res.message)
+                _this.start(0)
+              } else {
+                _this.$message.error(res.message)
+              }
+            }
+          })
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
+    },
+    start(needValidFullFlag) {
+      console.log(token)
+      if (!token) {
+        this.drawerForm = true
+        return
+      }//未登录弹登录
+      $.ajax({
+        url: ip + '/university/2020/indexInit',
+        type: 'POST',
+        data: {
+          friendTel: friendTelephone,
+          token: token,
+          needValidFullFlag: needValidFullFlag
         },
-        'success': true
-      }
-      that.lists = res.data.members
-      that.personalDrawStatus = res.data.personalDrawStatus ? '已获得' : '未完成'
-      that.groupDrawStatus = res.data.groupDrawStatus ? '已获得' : '未完成'
-      that.successCount = res.data.successCount
-      for (let i = 0; i < that.currentStatusOption.length; i++) {
-        if (that.currentStatusOption[i].value == res.data.currentStatus) {that.currentStatus = that.currentStatusOption[i].name }
-      }
-      if (res.data.currentStatus == 1) {
-        that.step = 2
-      } else {
-        that.step = 1
-      }
-      // $.ajax({
-      //   url: 'http://10.8.0.26:8089/university/2020/indexInit',
-      //   type: 'POST',
-      //   dataType: 'JSON',
-      //   success: function (res) {
-      //     that.lists = res.data.members
-      //     that.personalDrawStatus = res.data.personalDrawStatus ? '已获得' : '未完成'
-      //     that.groupDrawStatus = res.data.groupDrawStatus ? '已获得' : '未完成'
-      //     for (let i = 0; i < that.currentStatusOption.length; i++) {
-      //       if (that.currentStatusOption[i].value == res.data.currentStatus) {that.currentStatus = that.currentStatusOption[i].name }
-      //     }
-      //     if (res.data.currentStatus == 1) {
-      //       that.step = 2
-      //     }else{
-      //       that.step = 1
-      //     }
-      //     console.log(that.personalDrawStatus)
-      //   }
-      // })
+        dataType: 'JSON',
+        success: function (res) {
+          if (res.code == 200) {
+            _this.lists = res.data.members
+            _this.personalDrawStatus = res.data.personalDrawStatus ? '已获得' : '未完成'
+            _this.groupDrawStatus = res.data.groupDrawStatus ? '已获得' : '未完成'
+            _this.successCount = res.data.successCount
+            for (let i = 0; i < _this.currentStatusOption.length; i++) {
+              if (_this.currentStatusOption[i].value == res.data.currentStatus) {_this.currentStatus = _this.currentStatusOption[i].name }
+            }
+            if (res.data.currentStatus == 1) {
+              _this.step = 2
+            } else {
+              _this.step = 1
+            }
+          } else {
+            // token过期重新登录
+            localStorage.clear()
+            _this.step = 0
+            _this.drawerForm = true
+          }
+        }
+      })
     }
   }
 })
@@ -353,17 +502,17 @@ new Vue({
     }
   }
 //适配不同屏幕
-  function adaptationScreen() {
-    var win       = $(window),
-        winWidth  = win.width(),
-        winHeight = win.height(),
-        scale     = winWidth / winHeight
-    if (scale < 0.52) {
-      $('.container').addClass('bigScreen').removeClass('smallScreen')
-    } else {
-      $('.container').addClass('smallScreen').removeClass('bigScreen')
-    }
-  }
+//   function adaptationScreen() {
+//     var win       = $(window),
+//         winWidth  = win.width(),
+//         winHeight = win.height(),
+//         scale     = winWidth / winHeight
+//     if (scale < 0.52) {
+//       $('.container').addClass('bigScreen').removeClass('smallScreen')
+//     } else {
+//       $('.container').addClass('smallScreen').removeClass('bigScreen')
+//     }
+//   }
   $(document).ready(function () {
     EG.setFontsize()
   })
@@ -372,7 +521,7 @@ new Vue({
     $('body').css('height', $(window).height() + 'px')
     $('#app').css('height', $(window).height() + 'px')
     EG.setFontsize()
-    adaptationScreen()
+    // adaptationScreen()
     hengshuping()
   })
   EG.setFontsize()
